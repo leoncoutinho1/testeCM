@@ -1,14 +1,13 @@
 using System;
 using System.IO;
-using System.Diagnostics;
 namespace Testes
 {
   class Program
   {
     static void Main(string[] args)
     {
-      CriaMatriz("A.txt", 10, 10);
-      CriaMatriz("B.txt", 2, 2);
+      CriaMatriz("A.txt", 200, 350);
+      CriaMatriz("B.txt", 3, 4);
       int[,] A = LerMatriz("A.txt");
       int[,] B = LerMatriz("B.txt");
       Console.WriteLine(NumeroDeOcorrencias(A, B));
@@ -32,8 +31,6 @@ namespace Testes
       //     {
       //       for (int b = 0; b < m; b++)
       //       {
-      //         Console.WriteLine($"{i + a} {j + b} {a} {b}");
-      //         Console.WriteLine($"{matriz[i + a, j + b] == padrao[a, b]}");
       //         if(matriz[i + a, j + b] != padrao[a, b])
       //         {
       //           ocorre = false;

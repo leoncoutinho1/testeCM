@@ -34,4 +34,4 @@ function calcularModa(vetor) {
 }
 
 
-console.log(calcularModa([35,50,13,51,74,88,15,13,13,21,04,64,4,004,'a','',13,'teste']));
+console.log(calcularModa([35,50,13,51,74,88,15,1,21,04,64,4,004,'a','','teste']));
