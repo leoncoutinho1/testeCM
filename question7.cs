@@ -21,58 +21,74 @@ namespace Testes
       int contador = 0;
       
       bool ocorre = false;
+
+      // Solução 01 - Início
+
+      // for (int i = 0; i <= N - n; i++)
+      // {
+      //   for (int j = 0; j <= M - m; j++)
+      //   {
+      //     for (int a = 0; a < n; a++)
+      //     {
+      //       for (int b = 0; b < m; b++)
+      //       {
+      //         Console.WriteLine($"{i + a} {j + b} {a} {b}");
+      //         Console.WriteLine($"{matriz[i + a, j + b] == padrao[a, b]}");
+      //         if(matriz[i + a, j + b] != padrao[a, b])
+      //         {
+      //           ocorre = false;
+      //           break;
+      //         } else {
+      //           ocorre = true;
+      //         }
+      //       }
+      //       if(ocorre == false) break;
+      //     }
+      //     if(ocorre == true) contador++;
+      //   }
+      // }
+
+      // Solução 01 - Fim
+
+      // Solução 02 - Início
+
+      int i = 0, j = 0, a = 0, b = 0;
       
-      for (int i = 0; i <= N - n; i++)
+      while (i < N - n)
       {
-        for (int j = 0; j <= M - m; j++)
+        if (j > M - m)
         {
-          for (int a = 0; a < n; a++)
-          {
-            for (int b = 0; b < m; b++)
-            {
-              Console.WriteLine($"{i + a} {j + b} {a} {b}");
-              Console.WriteLine($"{matriz[i + a, j + b] == padrao[a, b]}");
-              if(matriz[i + a, j + b] != padrao[a, b])
-              {
-                ocorre = false;
-                break;
-              } else {
-                ocorre = true;
-              }
-            }
-            if(ocorre == false) break;
-          }
-          if(ocorre == true) contador++;
+          j = 0;
+          i++;
         }
+                
+        do 
+        { 
+          if (matriz[i + a, j + b] != padrao[a, b])
+          {
+            ocorre = false;
+          } else {
+            ocorre = true;
+          }
+          
+          b++;
+          
+          if (b >= m)
+          {
+            b = 0;
+            a++;
+          }
+          
+        } while (a < n && ocorre == true);
+        a = 0;
+        b = 0;
+
+        if(ocorre == true) contador++;
+        j++;
+
       }
 
-      //Solução 2
-      // string sMatriz = "";
-      // string sPadrao = "";
-      // int index, s;
-      
-      // foreach(int element in matriz)
-      // {
-      //   sMatriz = sMatriz + "" + element;
-      // }
-      // foreach(int element in padrao)
-      // {
-      //   sPadrao = sPadrao + "" + element;
-      // }
-      // Console.WriteLine($"{sMatriz}");
-      // Console.WriteLine($"{sPadrao}");
-
-      // while(sMatriz.IndexOf(sPadrao) >= 0)
-      // {
-      //   s = sMatriz.Length;
-      //   index = sMatriz.IndexOf(sPadrao);
-      //   Console.WriteLine($"{s} {index}");
-      //   if(index > 0)
-      //   {
-      //     contador++;
-      //     sMatriz = sMatriz.Substring(index + 1, s - index - 1);
-      //   }    
-      // }
+      // Solução 02 - Fim
 
       return contador;
     }
