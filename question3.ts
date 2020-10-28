@@ -52,21 +52,27 @@ class TriangEquil extends FigGeo {
   }
 
   calcArea():Number {
-    return (Math.pow(this.lado, 2) * Math.sqrt(3) )/ 4;
+    return (Math.pow(this.lado, 2) * Math.sqrt(3) / 4);
   }
 
 }
 
 let circulo:FigGeo = new Circulo(2);
-let quadrado:FigGeo = new Quadrado(2);
-let triangulo:FigGeo = new TriangEquil(12);
+let circulo2:FigGeo = new Circulo(3);
+let quadrado:FigGeo = new Quadrado(5);
+let quadrado2:FigGeo = new Quadrado(6);
+let triangulo:FigGeo = new TriangEquil(4);
+let triangulo2:FigGeo = new TriangEquil(8);
 
 
 let figuras:Array<FigGeo> = [];
 
 figuras.push(circulo);
+figuras.push(circulo2);
 figuras.push(quadrado);
+figuras.push(quadrado2);
 figuras.push(triangulo);
+figuras.push(triangulo2);
 
 
-figuras.forEach(fig => console.log(fig.calcArea()));
+figuras.forEach(fig => console.log(`${fig.tipo}: ${fig.calcArea()}`));

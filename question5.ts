@@ -1,23 +1,18 @@
-function inverteDiagonais(array:number[][]):number[][]{
-  let s:number = array.length;
-  let aux:number;
+let pilha:number[] = [1,2,3,4,5,6,7,8,9];
 
-  for(let i:number = 0; i <= s; i++){
-    for(let j:number = 0; j <= s; j++) {
-      if(i == j){
-        aux = array[i][j];
-        array[i][j] = array[i][s + 1 - i];
-        array[i][s + 1 - i] = aux;
-      }
+let valor:number = 5;
+
+
+function removeValor(pilha:number[], valor:number):number[] {
+  let novaPilha: number[] = [];
+  while(pilha.length > 0) {
+    if(pilha[0] !== valor) {
+      novaPilha.push(pilha.shift());
+    } else {
+      pilha.shift();
     }
   }
-
-  return array;
+  return novaPilha;
 }
 
-
-let array:Array<Array<Number>>;
-
-array[0] = [1,2,3];
-array[1] = [4,5,6];
-array[2] = [7,8,9];
+console.log(removeValor(pilha, valor));
